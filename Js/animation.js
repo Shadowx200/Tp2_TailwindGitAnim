@@ -1,29 +1,61 @@
-gsap.set(["#image1", "#image2", "#image3"], {
-  opacity: 0,
-});
+const images = [
+  "Medias/Star6image1.jpg",
+  "Medias/Star6image2.jpg",
+  "Medias/Star6image3.jpg",
+  "Medias/Star6image4.jpg",
+  "Medias/Star6image5.jpg",
+  "Medias/Star6image6.jpg",
+  "Medias/Star6image7.jpg",
+  "Medias/Star6image8.jpg",
+  "Medias/Star6image9.jpg",
+];
 
-const tl = gsap.timeline();
+let index = 3;
 
-tl.to("#image1", {
-  opacity: 1,
-  x: 0,
-  duration: 0.8,
-  ease: "power1.out",
-  from: { x: -100 },
-});
+const image1 = document.querySelector("#image1");
+const image2 = document.querySelector("#image2");
+const image3 = document.querySelector("#image3");
 
-tl.to("#image2", {
-  opacity: 1,
-  x: 0,
-  duration: 0.8,
-  ease: "power1.out",
-  from: { y: 100 },
-});
+const groupeImages = [image1, image2, image3];
 
-tl.to("#image3", {
-  opacity: 1,
-  x: 0,
-  duration: 0.8,
-  ease: "power1.out",
-  from: { x: 100 },
-});
+function animerEntree() {
+  gsap.fromTo(
+    groupeImages,
+    {
+      opacity: 0,
+      x: 120,
+      scale: 0.95,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+    },
+  );
+}
+
+function rotationImages() {
+  gsap.to(groupeImages, {
+    opacity: 0,
+    x: -120,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: "power2.in",
+    onComplete: function () {
+      image1.src = images[index];
+      image2.src = images[(index + 1) % images.length];
+      image3.src = images[(index + 2) % images.length];
+
+      index = (index + 3) % images.length;
+
+      animerEntree();
+    },
+  });
+}
+
+animerEntree();
+
+setInterval(rotationImages, 5000);
