@@ -44,7 +44,7 @@
       </nav>
     </header>
 
-    <main class="bg-white text-black min-h-screen">
+    <main class="bg-transparent text-black min-h-screen">
       <section class="mx-auto px-4 py-16">
         <div class="grid grid-cols-12 gap-5 text-center">
           <div class="col-span-12">
@@ -52,8 +52,8 @@
               Images et extraits
             </h1>
             <p class="text-gray-600 mb-6 max-w-[500px] mx-auto">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              optio.
+              Entrez votre adresse courriel afin de ne rien manquer des extraits
+              et des moments marquants de Star Wars : Le Retour du Jedi.
             </p>
             <form class="flex justify-center gap-4 mb-14">
               <input
@@ -103,21 +103,22 @@
             class="col-span-12 md:col-span-8 md:col-start-3 mx-auto text-center"
           >
             <h3 class="titreDescription text-4xl md:text-4xl font-bold mb-2">
-              Lorem ipsum dolor sit amet.
+              Une aventure riche en action
             </h3>
             <p class="description text-gray-600 mb-6 max-w-[500px] mx-auto">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Consequuntur non nihil voluptate debitis neque rem vero aliquam
-              quasi minus dolorem, ipsum sunt est id iusto! Lorem ipsum dolor
-              sit amet consectetur, adipisicing elit. Quaerat eligendi
-              accusantium possimus quod sit est delectus odit provident
-              consequuntur iure.
+              Star Wars : Le Retour du Jedi propose des affrontements
+              spectaculaires, des poursuites à haute vitesse sur Endor et une
+              bataille spatiale d'envergure contre l'Empire. Luke Skywalker
+              affronte Dark Vador dans un duel décisif au sabre laser tandis que
+              l'Alliance Rebelle lance son attaque finale contre la seconde
+              Étoile de la Mort, offrant une conclusion remplie d'action, de
+              suspense et d'émotions.
             </p>
           </div>
-          <div class="col-span-12 md:col-span-8 md:col-start-3 mt-10">
+          <div class="col-span-12 md:col-span-8 md:col-start-3 mt-10 mb-20">
             <h3 class="text-2xl font-bold mb-6">Questions fréquentes</h3>
 
-            <details class="border-2 border-black rounded-lg mb-4">
+            <details class="border-2 border-black mb-4">
               <summary
                 class="cursor-pointer font-semibold p-4 hover:bg-gray-100 transition"
               >
@@ -130,7 +131,7 @@
               </p>
             </details>
 
-            <details class="border-2 border-black rounded-lg mb-4">
+            <details class="border-2 border-black mb-4">
               <summary
                 class="cursor-pointer font-semibold p-4 hover:bg-gray-100 transition"
               >
@@ -142,7 +143,7 @@
               </p>
             </details>
 
-            <details class="border-2 border-black rounded-lg">
+            <details class="border-2 border-black">
               <summary
                 class="cursor-pointer font-semibold p-4 hover:bg-gray-100 transition"
               >
@@ -156,13 +157,14 @@
           </div>
 
           <div class="col-span-12 md:col-span-8 md:col-start-3">
-            <video
-              controls
-              class="w-full h-96 border-4 border-black bg-gray-100"
-            >
-              <source src="Medias/HygienneTeams.mp4" type="video/mp4" />
-              Votre navigateur ne supporte pas la vidéo.
-            </video>
+            <div class="aspect-video border-4 border-black overflow-hidden">
+              <iframe
+                class="w-full h-full"
+                src="https://www.youtube.com/embed/5QSEJx3R968"
+                title="Star Wars Episode VI Trailer"
+              >
+              </iframe>
+            </div>
           </div>
         </div>
       </section>
