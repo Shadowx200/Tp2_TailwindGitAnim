@@ -3,27 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Page d'accueil</title>
+    <!--tailwindcss-->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!--cloudflare-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!--Fichier css-->
+    <link rel="stylesheet" href="style.css" />
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
-  <body>
-    <header>
-      <a href="index.html">Acceuil</a>
-      <a href="tournage.html">Tournage</a>
-      <a href="index.html">LOGO</a>
+
+  <body class="bg-white text-black">
+    <!-- Navigation -->
+    <header class="w-full bg-black/70 border-b-2 border-white">
+      <nav
+        class="max-w-7xl mx-auto flex justify-between items-center py-6 px-8"
+      >
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-film text-3xl text-white"></i>
+          <span class="text-3xl font-semibold text-white"> STAR WARS </span>
+        </div>
+
+        <ul class="flex gap-12 text-lg">
+          <li>
+            <a
+              href="index.html"
+              class="text-white hover:text-yellow-400 transition duration-300"
+            >
+              Accueil
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="tournage.html"
+              class="text-white hover:text-yellow-400 transition duration-300"
+            >
+              Tournage
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <h1>Présentation de l'oeuvre</h1>
-    <p>
-      Star Wars: Episode VI Return of the Jedi, aussi appelé *Le Retour du
-      Jedi*, est le sixième épisode de la saga Star Wars. Cette histoire suit
-      Luke Skywalker dans sa quête pour sauver Han Solo et affronter une
-      dernière fois l’Empire galactique dirigé par Dark Vador et l’Empereur
-      Palpatine. Pendant ce temps, l’Alliance Rebelle prépare une attaque
-      décisive contre la seconde Étoile de la Mort. Ce film marque la conclusion
-      de la trilogie originale avec des batailles spatiales spectaculaires, la
-      rédemption de Dark Vador et la victoire finale des Rebelles.
-    </p>
-    >>>>>>> 810537738d8d670890c3e36e09a834a9f71bbfec
+
+    <!-- Section principale -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8">
+      <div
+        class="grid grid-cols-12 items-center gap-y-10 xl:gap-x-20 xl:min-h-[80vh]"
+      >
+        <!-- Texte -->
+        <section class="col-span-12 xl:col-span-6 text-center xl:text-left">
+          <h1
+            class="reveal-left text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8"
+          >
+            Présentation de<br />
+            l'œuvre
+          </h1>
+
+          <p
+            class="reveal-left-delay text-black-900 text-base md:text-lg leading-7 md:leading-8 max-w-2xl xl:max-w-md mx-auto xl:mx-0 mb-8 md:mb-10"
+          >
+            Star Wars: Episode VI – Return of the Jedi, aussi appelé *Le Retour
+            du Jedi*, est le sixième épisode de la saga Star Wars. L’histoire
+            suit Luke Skywalker dans sa quête pour sauver Han Solo et affronter
+            une dernière fois l’Empire galactique dirigé par Dark Vador et
+            l’Empereur Palpatine. Pendant ce temps, l’Alliance Rebelle prépare
+            une attaque décisive contre la seconde Étoile de la Mort. Ce film
+            marque la conclusion de la trilogie originale avec des batailles
+            spatiales spectaculaires, la rédemption de Dark Vador et la victoire
+            finale des Rebelles.
+          </p>
+
+          <div
+            class="reveal-left-delay-2 flex flex-col sm:flex-row justify-center xl:justify-start gap-4 md:gap-5"
+          >
+            <button
+              class="border-2 border-black px-6 md:px-7 py-3 rounded hover:bg-gray-100 transition"
+            >
+              Sélectionner la quantité
+            </button>
+
+            <button
+              class="bg-black text-white px-6 md:px-8 py-3 rounded hover:bg-gray-800 flex items-center justify-center gap-2 transition"
+            >
+              <i class="fa-solid fa-plus"></i>
+              Acheter maintenant
+            </button>
+          </div>
+        </section>
+
+        <!-- Carrousel -->
+        <div class="col-span-12 xl:col-span-6 flex flex-col items-center">
+          <div
+            class="relative w-full max-w-[420px] md:max-w-[560px] xl:max-w-none aspect-square border-4 border-black rounded-lg overflow-hidden shadow-lg"
+          >
+            <img
+              id="carousel-image"
+              src="img/images.jfif"
+              class="w-full h-full object-cover transition-opacity duration-500"
+              alt="Image du carrousel"
+            />
+
+            <button
+              id="prev"
+              type="button"
+              aria-label="Image précédente"
+              class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow hover:bg-white transition"
+            >
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <button
+              id="next"
+              type="button"
+              aria-label="Image suivante"
+              class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow hover:bg-white transition"
+            >
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div id="dots" class="hidden"></div>
+        </div>
+      </div>
+    </main>
+    <!--Bas de page-->
+    <footer class="mt-16 bg-black/70 border-t-2 border-white">
+      <div class="max-w-7xl mx-auto grid grid-cols-12 px-8 py-8 items-center">
+        <div class="col-span-12 md:col-span-6 text-center md:text-left">
+          <p class="text-lg font-bold text-white">
+            Marveen Petigny et Charles Bélanger
+          </p>
+
+          <p class="mt-2 text-white">Cégep de Trois-Rivières</p>
+        </div>
+
+        <div
+          class="col-span-12 md:col-span-6 text-center md:text-right mt-6 md:mt-0"
+        >
+          <p class="font-semibold text-white mb-3">Réseaux sociaux :</p>
+
+          <div class="flex justify-center md:justify-end gap-3">
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="w-10 h-10 border-2 border-white rounded-full flex justify-center items-center text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              f
+            </a>
+
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              class="w-10 h-10 border-2 border-white rounded-full flex justify-center items-center text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              in
+            </a>
+
+            <a
+              href="#"
+              aria-label="X (Twitter)"
+              class="w-10 h-10 border-2 border-white rounded-full flex justify-center items-center text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              X
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- source script js -->
+    <script src="script.js"></script>
   </body>
 </html>

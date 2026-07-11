@@ -38,13 +38,3 @@ body {
   background-attachment: fixed;
   overflow-x: hidden;
 }
-.footerContainer {
-  flex-direction: column;
-  gap: 15px;
-  text-align: center;
-}
-
-.footerDroite {
-  margin-right: 0;
-  flex-direction: column;
-}
