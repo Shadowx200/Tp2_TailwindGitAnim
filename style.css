@@ -1,0 +1,37 @@
+body {
+  background-image: url("background/Starwars6BI.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  clip-path: inset(0 100% 0 0);
+  animation: revealLeft 1.2s ease forwards;
+}
+
+.reveal-left-delay {
+  opacity: 0;
+  transform: translateX(-50px);
+  clip-path: inset(0 100% 0 0);
+  animation: revealLeft 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes revealLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: inset(0 0 0 0);
+  }
+}

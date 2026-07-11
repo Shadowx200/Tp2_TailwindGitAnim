@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Présentation de l'œuvre</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome -->
+    <title>Page d'accueil</title>
+    <!--tailwindcss-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!--cloudflare-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!--Fichier css-->
+    <link rel="stylesheet" href="style.css" />
+    <!--Font Awesome-->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -17,24 +19,21 @@
 
   <body class="bg-white text-black">
     <!-- Navigation -->
-    <header class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6">
-      <nav class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <!-- Logo -->
+    <header class="w-full bg-black/70 border-b-2 border-white">
+      <nav
+        class="max-w-7xl mx-auto flex justify-between items-center py-6 px-8"
+      >
         <div class="flex items-center gap-3">
-          <i class="fa-solid fa-face-smile text-3xl"></i>
-          <span class="text-3xl font-semibold">LOGO</span>
+          <i class="fa-solid fa-film text-3xl text-white"></i>
+          <span class="text-3xl font-semibold text-white"> STAR WARS </span>
         </div>
 
-        <!-- Menu -->
-        <ul
-          class="flex flex-wrap justify-center gap-4 md:gap-10 text-base md:text-lg"
-        >
+        <ul class="flex gap-12 text-lg">
           <li>
             <a
               href="index.html"
-              class="flex items-center gap-2 hover:text-blue-600 transition"
+              class="text-white hover:text-yellow-400 transition duration-300"
             >
-              <i class="fa-regular fa-compass"></i>
               Accueil
             </a>
           </li>
@@ -42,9 +41,8 @@
           <li>
             <a
               href="tournage.html"
-              class="flex items-center gap-2 hover:text-blue-600 transition"
+              class="text-white hover:text-yellow-400 transition duration-300"
             >
-              <i class="fa-regular fa-map"></i>
               Tournage
             </a>
           </li>
@@ -55,19 +53,19 @@
     <!-- Section principale -->
     <main class="max-w-7xl mx-auto px-4 md:px-8">
       <div
-        class="grid grid-cols-1 xl:grid-cols-2 items-center gap-10 xl:gap-20 xl:min-h-[80vh]"
+        class="grid grid-cols-12 items-center gap-y-10 xl:gap-x-20 xl:min-h-[80vh]"
       >
         <!-- Texte -->
-        <section class="text-center xl:text-left">
+        <section class="col-span-12 xl:col-span-6 text-center xl:text-left">
           <h1
-            class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8"
+            class="reveal-left text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8"
           >
             Présentation de<br />
             l'œuvre
           </h1>
 
           <p
-            class="text-gray-600 text-base md:text-lg leading-7 md:leading-8 max-w-2xl xl:max-w-md mx-auto xl:mx-0 mb-8 md:mb-10"
+            class="reveal-left-delay text-black-900 text-base md:text-lg leading-7 md:leading-8 max-w-2xl xl:max-w-md mx-auto xl:mx-0 mb-8 md:mb-10"
           >
             Star Wars: Episode VI – Return of the Jedi, aussi appelé *Le Retour
             du Jedi*, est le sixième épisode de la saga Star Wars. L’histoire
@@ -81,12 +79,12 @@
           </p>
 
           <div
-            class="flex flex-col sm:flex-row justify-center xl:justify-start gap-4 md:gap-5"
+            class="reveal-left-delay-2 flex flex-col sm:flex-row justify-center xl:justify-start gap-4 md:gap-5"
           >
             <button
               class="border-2 border-black px-6 md:px-7 py-3 rounded hover:bg-gray-100 transition"
             >
-              Sélectionner la quantitée
+              Sélectionner la quantité
             </button>
 
             <button
@@ -99,7 +97,7 @@
         </section>
 
         <!-- Carrousel -->
-        <section class="flex flex-col items-center">
+        <section class="col-span-12 xl:col-span-6 flex flex-col items-center">
           <div
             class="relative w-full max-w-[420px] md:max-w-[560px] xl:max-w-none aspect-square border-4 border-black rounded-lg overflow-hidden shadow-lg"
           >
@@ -110,46 +108,68 @@
               alt="Image du carrousel"
             />
 
-            <!-- Flèche gauche -->
             <button
               id="prev"
               type="button"
+              aria-label="Image précédente"
               class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow hover:bg-white transition"
             >
-              <i class="fa-solid fa-chevron-left"></i>
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
 
-            <!-- Flèche droite -->
             <button
               id="next"
               type="button"
+              aria-label="Image suivante"
               class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow hover:bg-white transition"
             >
-              <i class="fa-solid fa-chevron-right"></i>
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
 
-          <!-- Indicateurs -->
-          <div class="flex gap-5 mt-8">
-            <span
-              class="w-4 h-4 rounded-full bg-gray-700 cursor-pointer transition"
-            ></span>
-            <span
-              class="w-4 h-4 rounded-full bg-gray-300 cursor-pointer transition"
-            ></span>
-            <span
-              class="w-4 h-4 rounded-full bg-gray-300 cursor-pointer transition"
-            ></span>
-            <span
-              class="w-4 h-4 rounded-full bg-gray-300 cursor-pointer transition"
-            ></span>
-            <span
-              class="w-4 h-4 rounded-full bg-gray-300 cursor-pointer transition"
-            ></span>
-          </div>
+          <div id="dots" class="hidden"></div>
         </section>
       </div>
     </main>
+    <!--Bas de page-->
+    <footer class="mt-16 border-t-2 border-white bg-black/70">
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="text-center md:text-left text-white">
+          <h3 class="text-lg font-bold">Marveen Petigny et Charles Bélanger</h3>
+
+          <p class="mt-1">Cégep de Trois-Rivières</p>
+        </div>
+
+        <div class="text-center md:text-right text-white">
+          <p class="font-semibold mb-3">Réseaux sociaux :</p>
+
+          <div class="flex justify-center md:justify-end gap-3">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              f
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              in
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white font-bold hover:bg-white hover:text-black transition"
+            >
+              X
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- source script js -->
     <script src="script.js"></script>
   </body>
